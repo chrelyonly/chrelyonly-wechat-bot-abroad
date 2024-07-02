@@ -1,0 +1,23 @@
+{
+  "name": "chrelyonly-wechat-bot-abroad",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node main.js",
+    "pnpm-install": "pnpm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrelyonly/chrelyonly-wechat-bot-abroad"
+  },
+  "private": true,
+  "dependencies": {
+    "axios": "^1.7.2",
+    "express": "^4.19.2",
+    "file-box": "^1.4.15",
+    "qrcode-terminal": "^0.12.0",
+    "wechaty": "^1.20.2"
+  }
+}
