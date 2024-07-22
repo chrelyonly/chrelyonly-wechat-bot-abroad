@@ -25,7 +25,7 @@ axios.interceptors.response.use(res => {
     //获取状态码
     const status = res.status;
     if (status !== 200) {
-        return Promise.resolve(new Error(res.data))
+        return Promise.resolve(new Error(res.text))
     }
     return res;
 }, error => {
