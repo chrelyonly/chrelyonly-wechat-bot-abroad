@@ -11,7 +11,7 @@ export const unifiedVideo = (talker, text, room, bot) => {
     let headers = {
     }
     http("https://api.cobalt.tools/api/json", "post", params, 2, headers).then(res => {
-        let fileBox = FileBox.fromUrl(res.data.url.url, {name: "video.mp4"});
+        let fileBox = FileBox.fromUrl(res.data.url, {name: "video.mp4"});
         room.say(fileBox)
     }, err => {
         log.error(err)
