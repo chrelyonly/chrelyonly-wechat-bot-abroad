@@ -23,7 +23,7 @@ export const unifiedVideo = (talker, text, room, bot) => {
         }
         http(res.data.url,"get",params,3,{}).then(res2 => {
             log.info("下载成功");
-            let fileBox = FileBox.fromBuffer(res2.data,"video" + new Date().getTime() + ".MP4");
+            let fileBox = FileBox.fromBuffer(res2.data,"video" + new Date().getTime() + ".mp3");
             room.say(fileBox)
         }, err => {
             log.error(err)
