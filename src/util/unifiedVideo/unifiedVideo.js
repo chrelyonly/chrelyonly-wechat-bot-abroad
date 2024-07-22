@@ -18,8 +18,20 @@ export const unifiedVideo = (talker, text, room, bot) => {
     http("https://api.cobalt.tools/api/json", "post", params, 2, headers).then(res => {
         log.info("解析成功");
         log.info(res.data.url);
-        let fileBox = FileBox.fromUrl(res.data.url, {name: "video.mp4"});
-        room.say(fileBox)
+        let params = {
+
+        }
+        http(res.data.url,"get",params,3,{}).then(res2 => {
+            log.info("下载成功");
+            let fileBox = FileBox.fromBuffer(res2.data, "video.mp4");
+            room.say(fileBox)
+        }, err => {
+            log.error(err)
+            room.say("下载失败err")
+        }).catch(err => {
+            log.error(err)
+            room.say("下载失败catch")
+        })
     }, err => {
         log.error(err)
         room.say("解析失败，请检查链接是否正确err")
