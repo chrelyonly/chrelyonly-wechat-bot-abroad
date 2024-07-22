@@ -1,15 +1,12 @@
 import {http} from "../https.js";
 import {FileBox} from "file-box";
 import {log} from "wechaty";
-import {encode} from "./encode.js";
 
 
 export const youtubeVideo = (talker, text, room, bot) => {
 
     let params = {
-        link: JSON.stringify({
-            link: encode(text)
-        }),
+        link: 1
     }
     let headers = {
         // "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"

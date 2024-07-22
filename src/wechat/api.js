@@ -3,6 +3,7 @@ import {log, ScanStatus} from "wechaty";
 import qrTerminal from "qrcode-terminal";
 import {youtubeVideo} from "../util/youtubeVideo/youtubeVideo.js";
 import {getSystemInfo} from "../util/systemInfo/systemInfo.js";
+import {unifiedVideo} from "../util/unifiedVideo/unifiedVideo.js";
 
 export function onScan(qrcode, status) {
     if (status === ScanStatus.Waiting || status === ScanStatus.Timeout) {
@@ -53,8 +54,13 @@ export function onMessage(message, bot) {
             // 7是文本
             if (txtType === 7) {
                 // youtube解析, 这个有点问题,等待找个新接口
-                if (text.includes("youtu.be") || text.includes("www.youtube.com")) {
-                    youtubeVideo(talker,text,room,bot)
+                // if (text.includes("youtu.be") || text.includes("www.youtube.com")) {
+                //     youtubeVideo(talker,text,room,bot)
+                //     return;
+                // }
+                // 尝试统一解析
+                if (text.includes("https://")) {
+                    unifiedVideo(talker,text,room,bot)
                     return;
                 }
                 // 获取当前设备信息
